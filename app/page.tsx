@@ -1,56 +1,29 @@
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+"use client";
+import ProductsCarouselCards from "@/components/ui/ProductsCarouselCards";
+import Infinitegrid from "@/components/ui/InfiniteGrid";
+import Testimonial from "@/components/ui/Testimonial";
+import Hero from "@/components/ui/Hero";
+import Legacy from "@/components/ui/Legacy";
+import Divider from "@/components/ui/Divider";
+import GlowLine from "@/components/ui/GlowLine";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title()}>Make&nbsp;</span>
-        <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
-        <br />
-        <span className={title()}>
-          websites regardless of your design experience.
-        </span>
-        <div className={subtitle({ class: "mt-4" })}>
-          Beautiful, fast and modern React UI library.
-        </div>
+    <section className="flex flex-col items-center justify-center gap-8 py-8 md:py-10 text-[#CDBE9E]">
+      <Hero />
+
+      <div className="w-full min-h-[400px] md:h-screen">
+        <Infinitegrid />
       </div>
 
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-        </Link>
-        <Link
-          isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
-        >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
+      <div className="relative w-full">
+        <GlowLine orientation="horizontal" position="50%" color="apb" />
       </div>
-
-      <div className="mt-8">
-        <Snippet hideCopyButton hideSymbol variant="bordered">
-          <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
-          </span>
-        </Snippet>
-      </div>
+      <Legacy />
+      <Divider variant="dashed" thickness={2} color="#CDBE9E" />
+      <Testimonial />
+      <ProductsCarouselCards />
+      {/* <ImageCarousel /> */}
     </section>
   );
 }
