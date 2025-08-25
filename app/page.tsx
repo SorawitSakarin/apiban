@@ -6,6 +6,8 @@ import Hero from "@/components/ui/Hero";
 import Legacy from "@/components/ui/Legacy";
 import Divider from "@/components/ui/Divider";
 import GlowLine from "@/components/ui/GlowLine";
+import { AnimatedSection } from "@/components/animate/AnimatedComponent";
+import Revival from "@/components/ui/Revival";
 
 export default function Home() {
   return (
@@ -19,10 +21,20 @@ export default function Home() {
       <div className="relative w-full">
         <GlowLine orientation="horizontal" position="50%" color="apb" />
       </div>
+
       <Legacy />
+
       <Divider variant="dashed" thickness={2} color="#CDBE9E" />
-      <Testimonial />
-      <ProductsCarouselCards />
+
+      <Revival />
+      
+      <AnimatedSection dir="left" delay={500}>
+        <Testimonial />
+      </AnimatedSection>
+
+      <AnimatedSection dir="up" delay={500}>
+        <ProductsCarouselCards />
+      </AnimatedSection>
       {/* <ImageCarousel /> */}
     </section>
   );
